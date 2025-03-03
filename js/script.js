@@ -2,18 +2,26 @@ const container = document.querySelector('#container');
 
 function createGrid(size) {
   container.innerHTML = '';
+
   let userInput = prompt(
-    'Please enter the number of squares you want for you canvas (limit 1,000).  The more squares, the higher the detail you can achieve in your sketch.'
+    'Please enter the number of squares per side for your canvas (1-100). A higher number increases drawing detail.'
   );
+
+  if (userInput === null) {
+    alert('⚠️ Canvas creation has been canceled.');
+    return;
+  }
 
   userInput = Number(userInput);
 
-  if (userInput === null) {
-    alert(`⚠️ Canvase creation has been canceled by the user.`);
+  if (
+    isNaN(userInput) ||
+    !Number.isInteger(userInput) ||
+    userInput < 1 ||
+    userInput > 100
+  ) {
+    alert('🚫 Invalid input. Please enter a whole number between 1 and 100.');
     return;
-  } else if (userInput > 1000 || userInput < 1) {
-    alert(`🚫 Invalid input. Please enter a whole number between 1 and 1,000.`);
-    createGrid();
   }
 
   size = userInput;
@@ -29,6 +37,7 @@ function createGrid(size) {
     square.addEventListener('mouseenter', function () {
       this.style.backgroundColor = '#00c7cb';
     });
+
     container.appendChild(square);
   }
 }
