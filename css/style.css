@@ -1,0 +1,104 @@
+/* Design elements (colors, fonts, buttons) inspired by Astro (@astrouxds)
+   Source: https://www.figma.com/community/file/1157371532469023309
+   Licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+*/
+
+:root {
+  /* Background Colors */
+  --bg-page: #101923;
+  --bg-header: #172635;
+  --bg-container: #1b2d3e;
+  --bg-container-hover: #1c3851;
+  --bg-container-selected: #1c3f5e;
+  --bg-container-header: var(--bg-header);
+
+  /* Button Colors */
+  --btn: #4dacff;
+  --btn-hover: #92cbff;
+  --btn-muted: #2b659b;
+
+  /* Status Colors */
+  --status-success: #56f000;
+  --status-warning: #ffb302;
+  --status-in-progress: #fceb3a;
+  --status-error: #ff3b38;
+  --status-info: #00c7cb;
+
+  /* Border Colors */
+  --border: var(--btn);
+  --border-hover: var(--btn-hover);
+  --border-muted: var(--btn-muted);
+  --border-error: var(--status-error);
+
+  /* Text Colors */
+  --text: #ffffff;
+  --text-secondary: #d4dbdd;
+  --text-placeholder: #a4abb6;
+  --text-interactive: var(--btn);
+  --text-interactive-hover: var(--btn-hover);
+  --text-error: var(--status-error);
+
+  /* Link Colors */
+  --link: var(--btn);
+  --link-hover: var(--btn-hover);
+  --link-visited: var(--btn-muted);
+
+  /* Fonts */
+  --font-base: 'Roboto', sans-serif;
+  --font-monospace: 'Roboto Mono', monospace; /* Placeholder for monospaced numbers */
+}
+
+body {
+  background-color: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Link Styles */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+.canvas-btn {
+  margin: 0 40px 40px 0;
+  padding: 8px 16px;
+  background-color: var(--btn);
+  color: var(--bg-page);
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+}
+
+.canvas-btn:hover {
+  cursor: pointer;
+  background-color: var(--btn-hover);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid var(--btn);
+  border-radius: 4px;
+  width: 600px;
+  height: 600px;
+}
+
+.grid-square {
+  border: 1px solid var(--btn-muted);
+  background-color: var(--bg-container);
+  box-sizing: border-box;
+}
